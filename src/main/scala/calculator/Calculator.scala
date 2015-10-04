@@ -1,3 +1,5 @@
+package calculator
+
 import scala.collection.mutable.Stack
 
 object Calculator {
