@@ -1,4 +1,4 @@
 name := "sandbox"
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.11.7"
 
