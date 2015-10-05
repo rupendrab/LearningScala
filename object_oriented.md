@@ -471,3 +471,185 @@ scala.MatchError: 3 (of class java.lang.Integer)
   
 scala>   
   
+  
+## Part 2
+  
+> console  
+[info] Compiling 2 Scala sources to /Users/bandyr/Documents/scalacode/test/src/sandbox/target/scala-2.11/classes...  
+[info] Starting scala interpreter...  
+[info]   
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_60).  
+Type in expressions to have them evaluated.  
+Type :help for more information.  
+  
+scala> import cookbook3._  
+import cookbook3._  
+  
+scala> val r1 = Recipe()  
+r1: cookbook3.Recipe = cookbook3.Recipe@5c783100  
+  
+scala> val r2 = Recipe()  
+r2: cookbook3.Recipe = cookbook3.Recipe@455916d2  
+  
+scala> r1 == r2  
+res0: Boolean = false  
+  
+scala> sys.exit  
+  
+Exception: sbt.TrapExitSecurityException thrown from the UncaughtExceptionHandler in thread "run-main-e"  
+  
+[success] Total time: 259 s, completed Oct 4, 2015 8:01:49 PM  
+>   
+>   
+>   
+>   
+> console  
+[info] Compiling 1 Scala source to /Users/bandyr/Documents/scalacode/test/src/sandbox/target/scala-2.11/classes...  
+[info] Starting scala interpreter...  
+[info]   
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_60).  
+Type in expressions to have them evaluated.  
+Type :help for more information.  
+  
+scala> import cookbook3._  
+import cookbook3._  
+  
+>   
+>   
+> console  
+[info] Compiling 1 Scala source to /Users/bandyr/Documents/scalacode/test/src/sandbox/target/scala-2.11/classes...  
+[info] Starting scala interpreter...  
+[info]   
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_60).  
+Type in expressions to have them evaluated.  
+Type :help for more information.  
+  
+scala> import cookbook3._  
+import cookbook3._  
+  
+scala>   
+  
+scala> val r1 = Recipe()  
+r1: cookbook3.Recipe = Recipe(List(),List())  
+  
+scala> val r2 = Recipe()  
+r2: cookbook3.Recipe = Recipe(List(),List())  
+  
+scala> r1 == r2  
+res0: Boolean = true  
+  
+scala> r1.toString  
+res2: String = Recipe(List(),List())  
+  
+scala>   
+  
+scala> Cookbook.pbj match {  
+     |   case Recipe(ingredients, directions) =>   
+     |     println(ingredients)  
+     |     println(directions)  
+     | }  
+List(peanut butter, jelly, bread)  
+List(put the peanut butter and jelly on the bread)  
+  
+scala> Cookbook.pbj.copy()  
+res5: cookbook3.Recipe = Recipe(List(peanut butter, jelly, bread),List(put the peanut butter and jelly on the bread))  
+  
+scala> Cookbook.pbj.copy(ingredients = List.empty)  
+res6: cookbook3.Recipe = Recipe(List(),List(put the peanut butter and jelly on the bread))  
+  
+scala>   
+  
+scala> sys.exit  
+  
+Exception: sbt.TrapExitSecurityException thrown from the UncaughtExceptionHandler in thread "run-main-10"  
+  
+[success] Total time: 1701 s, completed Oct 4, 2015 8:31:26 PM  
+>   
+>   
+> console  
+[info] Compiling 1 Scala source to /Users/bandyr/Documents/scalacode/test/src/sandbox/target/scala-2.11/classes...  
+[info] Starting scala interpreter...  
+[info]   
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_60).  
+Type in expressions to have them evaluated.  
+Type :help for more information.  
+  
+scala> import cookbook3._  
+import cookbook3._  
+  
+scala> Cookbook.pbj  
+res0: cookbook3.Recipe = Recipe(Map(peanut butter -> 10.0g, jelly -> 0.5kg, bread -> 250.0g),List(put the peanut butter and jelly on the bread))  
+  
+scala> Cookbook.baconPancakes  
+res1: cookbook3.Recipe = Recipe(Map(bacon -> 1.0kg, pancakes -> 10.0mg),List(take some bacon and put it in a pancake))  
+  
+scala>   
+  
+scala> sys.exit  
+  
+Exception: sbt.TrapExitSecurityException thrown from the UncaughtExceptionHandler in thread "run-main-11"  
+  
+[success] Total time: 490 s, completed Oct 4, 2015 8:39:38 PM  
+>   
+> console  
+[info] Compiling 1 Scala source to /Users/bandyr/Documents/scalacode/test/src/sandbox/target/scala-2.11/classes...  
+[info] Starting scala interpreter...  
+[info]   
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_60).  
+Type in expressions to have them evaluated.  
+Type :help for more information.  
+  
+scala> import cookbook4._  
+import cookbook4._  
+  
+scala>   
+  
+scala>   
+  
+scala> def printMass(m: Mass) = m match {  
+     |   case Grams(amount) => println(amount + "grams")  
+     | }  
+<console>:13: warning: match may not be exhaustive.  
+It would fail on the following inputs: Kilograms(_), Milligrams(_)  
+       def printMass(m: Mass) = m match {  
+                                ^  
+printMass: (m: cookbook4.Mass)Unit  
+  
+scala> Cookbook.pbj  
+res1: cookbook4.Recipe = Recipe(Map(peanut butter -> 10.0g, jelly -> 0.5kg, bread -> 250.0g),List(put the peanut butter and jelly on the bread))  
+  
+scala> Cookbook.pbj.ingredients  
+res2: Map[String,cookbook4.Mass] = Map(peanut butter -> 10.0g, jelly -> 0.5kg, bread -> 250.0g)  
+  
+scala> Cookbook.pbj.ingredients.toList  
+res3: List[(String, cookbook4.Mass)] = List((peanut butter,10.0g), (jelly,0.5kg), (bread,250.0g))  
+  
+scala>   
+  
+scala> sys.exit  
+  
+Exception: sbt.TrapExitSecurityException thrown from the UncaughtExceptionHandler in thread "run-main-12"  
+  
+[success] Total time: 852 s, completed Oct 4, 2015 8:53:53 PM  
+>   
+> console  
+[info] Compiling 1 Scala source to /Users/bandyr/Documents/scalacode/test/src/sandbox/target/scala-2.11/classes...  
+[info] Starting scala interpreter...  
+[info]   
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_60).  
+Type in expressions to have them evaluated.  
+Type :help for more information.  
+  
+scala> import cookbook4._  
+import cookbook4._  
+  
+scala> Cookbook.pbj.shoppingList(Map.empty)  
+res0: List[String] = List(peanut butter, jelly, bread)  
+  
+scala> Cookbook.pbj.shoppingList(Map("peanut butter" -> Kilograms(1)))  
+res1: List[String] = List(jelly, bread)  
+  
+scala> Cookbook.pbj.shoppingList(Map("peanut butter" -> Grams(1)))  
+res3: List[String] = List(peanut butter, jelly, bread)  
+  
+scala>   
